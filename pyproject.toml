@@ -14,7 +14,7 @@ dependencies = [
 ]
 
 [project.scripts]
-browse-agent-v1 = "browse_agent_v1:main"
+start = "browse_agent_v1:main.run"
 
 [build-system]
 requires = ["hatchling"]
