@@ -1,0 +1,21 @@
+[project]
+name = "browse-agent-v1"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Muhammad Ibad", email = "ibad3572@gmail.com" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "browser-use>=0.1.40",
+    "dotenv>=0.9.9",
+    "openai-agents>=0.0.7",
+]
+
+[project.scripts]
+browse-agent-v1 = "browse_agent_v1:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
