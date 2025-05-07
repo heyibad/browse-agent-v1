@@ -50,28 +50,32 @@ def get_weather(city: str):
     return f"The weather in {city} is sunny."
 
 
-@function_tool(name_override="Browser_Agent",
-               description_override="Its designed to Perform a task in the browser with will be for browser it can visit links, search for information, and perform other tasks that require a web browser.",
-               
-               )
-def browser_agent(query: str) -> BrowserAgent:
-    """
-    The Browser Agent , Its designed to Perform a task in the browser with will be for browser it can visit links, search for information, and perform other tasks that require a web browser.
-    """
-    return BrowserAgent(
-        llm=LLM,
-        task=query,
-    )
+@function_tool(
+    name_override="browser_agent",
+    description_override="Use this to navigate in a real browser: visit URLs, click links, scrape content, etc."
+)
+async def browser_agent(query: str) -> str:
+    # Create and run the BrowserUse agent
+    agent = BrowserAgent(llm=LLM, task=query)
+    result = await agent.run()
+    # `result.output` (or `.result`) is the text the agent scraped/back-chatted
+    return result.output or result.result
 
 
 async def main(input_text: str):
     agent = Agent(
-        name="Assistant",
-        instructions="You are an assistant.",
-        model=model_name,
-        tools=[get_weather, browser_agent],
-        
-    )
+    name="Assistant",
+    instructions=(
+        "You are an AI assistant with two tools:\n"
+        "1. get_weather(city) → returns weather forecast\n"
+        "2. browser_agent(query) → can open a browser, visit URLs, click links, and scrape content.\n"
+        "Whenever the user asks you to navigate or fetch information from a website, "
+        "you MUST call browser_agent with a clear, concise query."
+    ),
+    model=model_name,
+    tools=[get_weather, browser_agent],
+)
+
 
     result = await Runner.run(agent, input_text)
     print(result.final_output)
