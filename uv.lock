@@ -72,6 +72,7 @@ dependencies = [
     { name = "dotenv" },
     { name = "langchain-google-genai" },
     { name = "openai-agents" },
+    { name = "steel-sdk" },
 ]
 
 [package.metadata]
@@ -80,6 +81,7 @@ requires-dist = [
     { name = "dotenv", specifier = ">=0.9.9" },
     { name = "langchain-google-genai", specifier = ">=2.1.2" },
     { name = "openai-agents", specifier = ">=0.0.7" },
+    { name = "steel-sdk", specifier = ">=0.3.0" },
 ]
 
 [[package]]
@@ -989,6 +991,23 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/04/1b/52b27f2e13ceedc79a908e29eac426a63465a1a01248e5f24aa36a62aeb3/starlette-0.46.1.tar.gz", hash = "sha256:3c88d58ee4bd1bb807c0d1acb381838afc7752f9ddaec81bbe4383611d833230", size = 2580102 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/a0/4b/528ccf7a982216885a1ff4908e886b8fb5f19862d1962f56a3fce2435a70/starlette-0.46.1-py3-none-any.whl", hash = "sha256:77c74ed9d2720138b25875133f3a2dae6d854af2ec37dceb56aef370c1d8a227", size = 71995 },
+]
+
+[[package]]
+name = "steel-sdk"
+version = "0.3.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "anyio" },
+    { name = "distro" },
+    { name = "httpx" },
+    { name = "pydantic" },
+    { name = "sniffio" },
+    { name = "typing-extensions" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/f3/3e/ece65195f8f7f8dc6abfdd1fd98846899809aedbee49e77f5563f0b84a85/steel_sdk-0.3.0.tar.gz", hash = "sha256:2644e20278b6652b40cffd04c8b5a32dd62ca6ee3588f770c1b26df8b4febfc7", size = 108354 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/86/4e/2080229c494cd1d3cb35e7d4e1a99ce9e04bfa21fba6d0ee64519cc4c6bb/steel_sdk-0.3.0-py3-none-any.whl", hash = "sha256:2d04a6577ae66155f3ecdc8d570bae32327f083b4282e966848958328aa53ecc", size = 89628 },
 ]
 
 [[package]]
